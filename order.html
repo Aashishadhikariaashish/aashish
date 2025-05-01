@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order a Website | StromStack</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Funny Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #ffd6ec, #d1fffc);
+      color: #333;
+    }
+
+    h2 {
+      text-shadow: 2px 2px #fff000;
+      animation: bounce 2s infinite;
+    }
+
+    .crazy-border {
+      border: 3px dashed #ff00ff;
+      animation: spinBorder 4s linear infinite;
+    }
+
+    .crazy-btn {
+      background: linear-gradient(45deg, #00f2fe, #4facfe);
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .crazy-btn:hover {
+      transform: rotate(2deg) scale(1.1);
+      background: linear-gradient(45deg, #f9d423, #ff4e50);
+      box-shadow: 0 0 15px #ff6ec4;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes spinBorder {
+      0% { border-color: #ff00ff; }
+      25% { border-color: #00ffff; }
+      50% { border-color: #ffff00; }
+      75% { border-color: #ff00ff; }
+      100% { border-color: #00ff00; }
+    }
+
+    /* Notification styles */
+    .notification {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Order Form Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-5xl font-bold mb-8 text-center text-pink-700">🚀 Order a Website 🧠</h2>
+
+      <form id="orderForm" action="https://formspree.io/f/mldbgppk" method="POST" class="bg-white p-8 rounded-2xl shadow-xl space-y-6 crazy-border">
+        <div>
+          <label class="block mb-2 font-semibold text-purple-700">Your Crazy Name</label>
+          <input type="text" placeholder="Captain Code" name="name" class="w-full border-2 border-pink-400 px-4 py-2 rounded-md focus:ring-2 focus:ring-pink-500" required>
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold text-green-700">Magical Email</label>
+          <input type="email" placeholder="your@email.com" name="_replyto" class="w-full border-2 border-green-400 px-4 py-2 rounded-md focus:ring-2 focus:ring-green-500" required>
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold text-blue-700">Website Type</label>
+          <select name="website_type" class="w-full border-2 border-blue-300 px-4 py-2 rounded-md">
+            <option>🧍 Individual</option>
+            <option>🏢 Company</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold text-red-700">Website Purpose</label>
+          <input type="text" placeholder="e.g. Portfolio, Unicorn Store" name="purpose" class="w-full border-2 border-red-300 px-4 py-2 rounded-md focus:ring-2 focus:ring-red-500" required>
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold text-indigo-700">Cool Features</label>
+          <textarea rows="4" placeholder="e.g. Spaceship booking, dancing cat widget..." name="features" class="w-full border-2 border-indigo-300 px-4 py-2 rounded-md focus:ring-2 focus:ring-indigo-500"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="crazy-btn py-3 px-8 rounded-full">🛒 Submit Order</button>
+        </div>
+      </form>
+
+      <!-- Notification Message -->
+      <div id="successMessage" class="notification">
+        Submission completed! You will be notified soon.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Select the form and success message
+    const form = document.getElementById('orderForm');
+    const successMessage = document.getElementById('successMessage');
+
+    // Event listener for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Simulate form submission success
+      setTimeout(function() {
+        // Show success message
+        successMessage.style.display = 'block';
+        
+        // Optionally reset the form after success message
+        form.reset();
+      }, 500); // Simulate a delay for the submission process
+    });
+  </script>
+</body>
+</html>
